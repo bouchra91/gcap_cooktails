@@ -1,20 +1,17 @@
 import React from 'react'
 import {ScrollTrigger ,SplitText } from 'gsap/all';
 import gsap from 'gsap';
-
+import NavBar from "./component/NavBar";
+import Hero from "./component/hero";
 gsap.registerPlugin(ScrollTrigger, SplitText); // <- register GSAP plugins it makes sure that the plugins are loaded globally
 
 function App() {
   return (
-    <div className='flex-center'>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <p className="text-lg text-gray-600">
-        This is a sample React application using Tailwind CSS and GSAP.
-      </p>
-    </div>
-  )
+    <main>
+      <NavBar />
+      <Hero />
+    </main>
+  );
 }
 
 export default App
