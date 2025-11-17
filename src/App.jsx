@@ -4,6 +4,8 @@ import gsap from 'gsap';
 import NavBar from "./component/NavBar";
 import Hero from "./component/hero";
 import Cocktails from "./component/cocktails";
+import Art from "./component/art";
+import Jus from "./component/jus";
 import { About } from "./component/about";
 gsap.registerPlugin(ScrollTrigger, SplitText); // <- register GSAP plugins it makes sure that the plugins are loaded globally
 
@@ -14,6 +16,8 @@ function App() {
       <Hero />
       <Cocktails />
       <About />
+      <Art />
+      <Jus />
     </main>
   );
 }
