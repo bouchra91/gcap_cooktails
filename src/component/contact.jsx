@@ -1,6 +1,46 @@
 import React from "react";
 import { storeInfo, openingHours, socials } from "/src/constants/index.js";
+
+import { SplitText } from "gsap/all";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 const Contact = () => {
+  useGSAP(() => {
+    const titleSplit = SplitText.create("#contact", { type: "words" });
+
+    const timeLine = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top center",
+      },
+      ease: "power1.inOut",
+    });
+
+    timeLine
+      .from(titleSplit.words, {
+        opacity: 0,
+        duration: 1,
+        yPercent: 100,
+        stagger: 0.02,
+      })
+      .from("#contact h3 , #contact p ", {
+        opacity: 0,
+        duration: 1,
+        yPercent: 100,
+        stagger: 0.02,
+      })
+      .to("#f-left-leaf", {
+        y: "-50",
+        duration: 1,
+        ease: "power1.inOut",
+      })
+      .to("#f-right-leaf", {
+        y: "-50",
+        duration: 1,
+        ease: "power1.inOut",
+      });
+  });
+
   return (
     <footer id="contact">
       <img
@@ -34,10 +74,12 @@ const Contact = () => {
           <div className="flex-center gap-5">
             {socials.map((social, index) => (
               <div key={index} className="flex-center gap-5">
-                <a href={social.url}
+                <a
+                  href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.name}>
+                  aria-label={social.name}
+                >
                   <img src={social.icon} alt={social.name} className="" />
                 </a>
               </div>
